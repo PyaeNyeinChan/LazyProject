@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head>
+	<title>Blog List</title>
+	
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="font-awesome.min.css"></h:outputStylesheet>
+	
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	
+	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="js" name="popper.min.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+</h:head> 
+<body> 
+	
+	
+	<section class="container">
+
+		<h1>Blog List</h1>
+		
+		<h:form styleClass="form-inline mt-4">
+			
+			<div class="form-group mr-4">
+				<h:outputLabel value="Title" styleClass="mr-2"/>
+				<h:inputText styleClass="form-control" value="#{blogListBean.title}" p:placeholder="Search Title" />
+			</div>
+			
+			<div class="form-group mr-4">
+				<h:outputLabel value="User Name" styleClass="mr-2" />
+				<h:inputText styleClass="form-control" value="#{blogListBean.name}" p:placeholder="Search User" />
+			</div>			
+			
+			<h:commandLink styleClass="btn btn-outline-info mr-2" action="#{blogListBean.search()}" >
+				<i class="fa fa-search"></i> Search
+			</h:commandLink>
+			<h:link styleClass="btn btn-outline-danger" outcome="/add-new" >
+				<i class="fa fa-plus"></i> Add New
+			</h:link>
+			
+		</h:form>
+		
+		<h:dataTable value="#{blogListBean.blogs}" var="b" styleClass="table table-striped mt-4">
+			
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{b.id}
+			</h:column>
+		
+			<h:column>
+				<f:facet name="header">Title</f:facet>
+				#{b.title}
+			</h:column>
+	
+			<h:column>
+				<f:facet name="header">User</f:facet>
+				#{b.user}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Post Time</f:facet>
+				<h:outputText value="#{b.postTime}" converter="#{localDateTimeConverter}" />
+			</h:column>
+			
+			<h:column>
+				<h:form>
+					<h:link outcome="/details" styleClass="btn btn-link">
+						<i class="fa fa-send"></i>
+						<f:param name="id" value="#{b.id}"></f:param>
+					</h:link>
+					<h:link outcome="/add-new" styleClass="btn btn-link">
+						<i class="fa fa-pencil"></i>
+						<f:param name="id" value="#{b.id}"></f:param>
+					</h:link>
+					<h:commandLink action="#{blogListBean.delete(b.id)}" styleClass="btn btn-link" >
+						<i class="fa fa-trash-o"></i>
+					</h:commandLink>
+				</h:form>
+			</h:column>
+			
+		</h:dataTable>
+	
+	</section>
+</body> 
+</html>
