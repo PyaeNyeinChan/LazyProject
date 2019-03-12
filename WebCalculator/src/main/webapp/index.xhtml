@@ -14,33 +14,38 @@
 	<h:outputScript library="js" name="popper.min.js"></h:outputScript>
 	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
 
-	<link href="resource/css/bootstrap.min.css" rel="stylesheet"
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet"
 		type="text/css" />
-	<link href="resource/css/font-awesome.min.css" rel="stylesheet"
+	<link href="resources/css/font-awesome.min.css" rel="stylesheet"
 		type="text/css" />
 </h:head>
 <body>
-	<h:form>
-	<h:inputText value="Numbers are here" disabled="true" />
-		<h:panelGrid columns="4">
-			<h:button value="1"></h:button>
-			<h:button value="2"></h:button>
-			<h:button value="3"></h:button>
-			<h:button value="+"></h:button>
-			<h:button value="4"></h:button>
-			<h:button value="5"></h:button>
-			<h:button value="6"></h:button>
-			<h:button value="-"></h:button>
-			<h:button value="7"></h:button>
-			<h:button value="8"></h:button>
-			<h:button value="9"></h:button>
-			<h:button value="*"></h:button>
-			<h:button value="0"></h:button>
-			<h:button value="."></h:button>
-			<h:button value="="></h:button>
-			<h:button value="%"></h:button>
-			
-		</h:panelGrid>
-	</h:form>
+
+	<section class="container">
+	<h1>LazyProject Calculator</h1>
+	<h:panelGrid border="1" styleClass="badge-danger w-50 ">
+		<h:form>
+			<h:inputText value="Numbers are here" disabled="true"
+				styleClass="text-md-right w-100 p-3 h-100" />
+			<h:panelGrid columns="4" styleClass="w-100">
+				<h:button value="1" styleClass="btn btn-danger  btn-lg ml-4 "></h:button>
+				<h:button value="2" styleClass="btn btn-danger  btn-lg mr-4"></h:button>
+				<h:button value="3" styleClass="btn btn-danger  btn-lg  mr-4"></h:button>
+				<h:button value="+" styleClass="btn btn-danger  btn-lg  "></h:button>
+				<h:button value="4" styleClass="btn btn-danger  btn-lg ml-4"></h:button>
+				<h:button value="5" styleClass="btn btn-danger  btn-lg  mr-4"></h:button>
+				<h:button value="6" styleClass="btn btn-danger  btn-lg  mr-4"></h:button>
+				<h:button value="-" styleClass="btn btn-danger  btn-lg "></h:button>
+				<h:button value="7" styleClass="btn btn-danger  btn-lg ml-4"></h:button>
+				<h:button value="8" styleClass="btn btn-danger  btn-lg mr-4"></h:button>
+				<h:button value="9" styleClass="btn btn-danger  btn-lg mr-4"></h:button>
+				<h:button value="*" styleClass="btn btn-danger  btn-lg "></h:button>
+				<h:button value="0" styleClass="btn btn-danger  btn-lg ml-4"></h:button>
+				<h:button value="." styleClass="btn btn-danger  btn-lg mr-4"></h:button>
+				<h:button value="=" styleClass="btn btn-danger  btn-lg mr-4"></h:button>
+				<h:button value="%" styleClass="btn btn-danger  btn-lg "></h:button>
+			</h:panelGrid>
+		</h:form>
+	</h:panelGrid> </section>
 </body>
 </html>
