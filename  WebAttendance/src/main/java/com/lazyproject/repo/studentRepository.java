@@ -1,7 +1,6 @@
 package com.lazyproject.repo;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +13,14 @@ import com.lazyproject.entity.student;
 public class studentRepository implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private List<student> students;
-	
+
 	@PostConstruct
 	private void init() {
 		students = new ArrayList<>();
 	}
-	
+
 	public void add(student std) {
 		if(students.isEmpty()) {
 			std.setId(1);
@@ -30,11 +29,11 @@ public class studentRepository implements Serializable {
 		}
 		students.add(std);
 	}
-	
+
 	public student findByID(int id) {
 		return students.stream().filter(student -> student.getId() == id).findFirst().orElse(null);
 	}
-	
+
 	public List<student> search(String name){
 		List<student> std = new ArrayList<>();
 		for(student s : students) {
@@ -48,9 +47,9 @@ public class studentRepository implements Serializable {
 	}
 
 	public void update(student std) {
-		
+
 	}
-	
+
 	private boolean startWithNoCase(String origin, String content) {
 		return origin.toLowerCase().startsWith(content.toLowerCase());
 	}

@@ -15,15 +15,15 @@ import com.lazyproject.repo.studentRepository;
 public class studentListBean {
 	private String Name;
 	private List<student> students;
-	
+
 	@Inject
 	private studentRepository repo;
-	
+
 	@PostConstruct
 	public void init() {
 		students = repo.search(Name);
 	}
-	
+
 	public String search() {
 		students = repo.search(Name);
 		return "/index";
@@ -52,5 +52,5 @@ public class studentListBean {
 	public void setRepo(studentRepository repo) {
 		this.repo = repo;
 	}
-	
+
 }

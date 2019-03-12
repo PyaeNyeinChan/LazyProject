@@ -15,29 +15,28 @@ import com.lazyproject.repo.studentRepository;
 
 @Named
 @ViewScoped
+
 public class studentAddBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private student Students;
-	
+
 	@Inject
 	private studentRepository repo;
-	
+
 	@PostConstruct
 	private void init() {
 		Students = new student();
-		
+
 		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 		String str = context.getRequestParameterMap().get("id");
-		
+
 		if(null != str) {
 			Students = repo.findByID(Integer.parseInt(str));
 		}
 	}
-	
+
 	public String save() {
-		Students.setFirstSection(LocalDateTime.now());
-		Students.setSecondSection(LocalDateTime.now());
 		if(Students.getId() > 0) {
 			repo.update(Students);
 		} else {
@@ -53,6 +52,6 @@ public class studentAddBean implements Serializable {
 	public void setStudents(student students) {
 		Students = students;
 	}
-	
+
 
 }

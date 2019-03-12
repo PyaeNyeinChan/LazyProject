@@ -1,6 +1,5 @@
 package com.lazyproject.converter;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -13,7 +12,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class LocalDateTimeConverter implements Converter<LocalDateTime> {
-	
+
 	private DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
 
 	@Override
