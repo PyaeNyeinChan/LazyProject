@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>College-list</title>
+</h:head> 
+<body> 
+	<center><h2>College Records</h2></center>
+	<h:form>
+		<h:dataTable value="#{collegeBean.collegeListFromDB()}" var="c">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{c.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">College Name</f:facet>
+				<h:outputText value="#{c.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Phone Number</f:facet>
+				<h:outputText value="#{c.phone}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Mail</f:facet>
+				<h:outputText value="#{c.email}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Update</f:facet>
+				<h:commandButton action="#{collegeBean.editCollegeID}" value="update">
+				<f:param name="selectedCollegeId" value="#{c.id}" />
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+		<h:commandButton action="add_college?faces-redirect=true" value="Add New College Data" />
+	</h:form>
+</body> 
+</html>
