@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:composition template="/WEB-INF/webtemplate.xhtml">
+	<ui:define name="title">Add Registration</ui:define>
+	<ui:define name="page-title"><i class="fa fa-users" style="margin-right:3pt"></i>Register</ui:define>
+	<ui:define name="content">
+		<h:form styleClass="col-lg-6 col-md-8 col-sm-12">
+		
+			<div class="form-group">
+				<h:outputLabel value="Choose your room " />
+				<h:selectOneMenu styleClass="dropdown form-control"></h:selectOneMenu>
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Customer Name " />
+				<h:inputText p:placeholder="Enter Customer Name" styleClass="form-control" />
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Check In Date " />
+				<h:inputText p:placeholder="Enter Check In Date" p:type="date" styleClass="form-control" />
+			</div>
+			
+			<div class="form-group">
+				<h:outputLabel value="Check Out Date " />
+				<h:inputText p:placeholder="Enter Check Out Date" p:type="date" styleClass="form-control" />
+			</div>
+			
+			<h:commandLink styleClass="btn btn-secondary">
+				<i class="fa fa-save"></i> Save
+			</h:commandLink>
+		</h:form>
+	</ui:define>
+	</ui:composition>
+</html>

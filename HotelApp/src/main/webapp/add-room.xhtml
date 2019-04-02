@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:composition template="WEB-INF/webtemplate.xhtml">
+	<ui:define name="title">Add Room</ui:define>
+	<ui:define name="page-title">Add New Room</ui:define>
+	<ui:define name="content">
+		<h:form styleClass="col-lg-6 col-md-8 col-sm-12">
+			<div class="form-group">
+				<h:outputLabel value="Room Number" />
+				<h:inputText styleClass="form-control" p:placeholder="Enter Room Number" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="How many bed in the room?" />
+				<h:inputText styleClass="form-control" p:placeholder="Enter Bed Count" />
+			</div>
+			<h:commandLink styleClass="btn btn-secondary">
+				<i class="fa fa-safari"></i> Save
+			</h:commandLink>
+		</h:form>
+	</ui:define>
+	</ui:composition>
+</html>
